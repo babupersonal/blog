@@ -6,12 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import Markdown from 'marked-react';
 import throttle from 'lodash/throttle';
-// const OauthToken = process.env.REACT_APP_PERSONAL_ACCESS_TOKEN;
-const OauthToken = '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';
-const CLIENT_ID = 'Iv1.5f95480a214aafea';
+const CLIENT_ID = 'da10ab0215e7035995b2';
 const PER_PAGE = 10;
-
-console.log(OauthToken);
 
 function App() {
 
@@ -58,6 +54,11 @@ function App() {
     }
   }, []); //rerender
   
+  function logingithub() {
+    window.location.assign(
+      `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo%20read:user:email%20gist`
+    );
+  }
   
   useEffect(() => {
     if (localStorage.getItem('accessToken')) {
@@ -162,11 +163,6 @@ function App() {
     return markdownContent; 
   };
   
-  function logingithub() {
-    window.location.assign(
-      `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=repo%20read:user:email%20gist`
-    );
-  }
   const handleError = (error) => {
     console.error('Error:', error);
   };
@@ -188,8 +184,8 @@ function App() {
     } 
   
     try {
-      // const accessToken = PersonalAccessToken;
-      const accessToken = OauthToken;
+      // const accessToken =  PERSONAL_ACCESS_TOKEN;
+      const accessToken = localStorage.getItem('accessToken');
       console.log(accessToken);
       if (!accessToken) {
         console.error('Access token not found.');
@@ -232,9 +228,8 @@ function App() {
   //新增文章
   const handleSubmit = async () => {
     try {
-      // const accessToken = PersonalAccessToken;
-      const accessToken = OauthToken;
-      console.log(accessToken);
+      // const accessToken = PERSONAL_ACCESS_TOKEN;
+      const accessToken = localStorage.getItem('accessToken');
       if (!accessToken) {
         console.error('Access token not found.');
         return;
