@@ -6,9 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import Markdown from 'marked-react';
 import throttle from 'lodash/throttle';
-const OauthToken = process.env.REACT_APP_PERSONAL_ACCESS_TOKEN;
+// const OauthToken = process.env.REACT_APP_PERSONAL_ACCESS_TOKEN;
+const OauthToken = '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';
 const CLIENT_ID = 'Iv1.5f95480a214aafea';
 const PER_PAGE = 10;
+
+console.log(OauthToken);
 
 function App() {
 
@@ -187,6 +190,7 @@ function App() {
     try {
       // const accessToken = PersonalAccessToken;
       const accessToken = OauthToken;
+      console.log(accessToken);
       if (!accessToken) {
         console.error('Access token not found.');
         return;
