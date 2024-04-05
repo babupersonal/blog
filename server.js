@@ -4,8 +4,10 @@ const fetch = (...args) =>
     import('node-fetch').then(({default: fetch}) => fetch(...args));
 var bodyParser = require ('body-parser')
 
-const CLIENT_ID = 'Iv1.5f95480a214aafea';
-const CLIENT_SECRET = '16d9140a9b1ae54d7b0915193b1d380edd337dfe';
+// const CLIENT_ID = 'Iv1.5f95480a214aafea';
+// const CLIENT_SECRET = '16d9140a9b1ae54d7b0915193b1d380edd337dfe';
+const CLIENT_ID = 'da10ab0215e7035995b2';
+const CLIENT_SECRET = '508a008becd7d93db5aac0d37bb659e392c91e8d';
 
 var app = express();
 
